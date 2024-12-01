@@ -1,0 +1,23 @@
+{
+  "id": 2,
+  "firstName": "JsonStudentName",
+  "lastName": "JsonStudentLastName",
+  "email": "Json@Jsona.ge",
+  "studentNumber": "02",
+  "GPA": 3.7,
+  "enrolledCourses": [
+    {
+      "courseId": 1,
+      "courseName": "Mathematics",
+      "lecturer": {
+        "lecturerNumber": "L01",
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johndoe@university.edu"
+      },
+      "startDate": "2024-09-01T00:00:00.000+00:00",
+      "getWeekDays": ["Monday", "Wednesday", "Friday"],
+      "endDate": "2025-06-01T00:00:00.000+00:00"
+    }
+  ]
+}

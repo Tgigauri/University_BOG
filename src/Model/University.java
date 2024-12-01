@@ -1,7 +1,10 @@
 package Model;
 import Exception.*;
 import Interface.UniversityManagement;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -120,5 +123,18 @@ public final class University implements UniversityManagement {
             throw new CourseNotFoundException("Lecturer with ID " + lecturer.getLecturerNumber() + " is not teaching any courses");
         }
         return lecturerCourses;
+    }
+
+    @Override
+    public void addStudentFromJson(String filePath) {
+        System.out.println("Started Reading Json");
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            Student student = objectMapper.readValue(new File(filePath), Student.class);
+            addStudent(student);
+            System.out.println("Successfully imported JSON");
+        } catch (IOException e) {
+            System.out.println("Error parsing student JSON from file: " + e.getMessage());
+        }
     }
 }

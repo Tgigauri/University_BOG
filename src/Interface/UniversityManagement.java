@@ -27,5 +27,6 @@ public interface UniversityManagement {
 
     List<Course> getCoursesByStudent(Student student);
     List<Course> getCoursesByLecturer(Lecturer lecturer);
+    void addStudentFromJson(String studentJson);
 }
 

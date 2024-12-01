@@ -1,5 +1,7 @@
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -27,11 +29,21 @@ public class Student extends Person{
     }
 
 
-    public Student(int id, String firstName, String lastName, String email, String studentNumber, List<Course> enrolledCourses, Double GPA) {
-        this.setId(id);
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-        this.setEmail(email);
+    public Student() {
+    }
+
+    public Student(
+            @JsonProperty("id") int id,
+            @JsonProperty("firstName") String firstName,
+            @JsonProperty("lastName") String lastName,
+            @JsonProperty("email") String email,
+            @JsonProperty("studentNumber") String studentNumber,
+            @JsonProperty("enrolledCourses") List<Course> enrolledCourses,
+            @JsonProperty("GPA") Double GPA) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
         this.studentNumber = studentNumber;
         this.enrolledCourses = enrolledCourses;
         this.GPA = GPA;
@@ -69,4 +81,6 @@ public class Student extends Person{
     public int hashCode() {
         return Objects.hash(studentNumber);
     }
+
+
 }

@@ -1,7 +1,9 @@
 import Interface.UniversityManagement;
 import Model.*;
 import Exception.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -100,5 +102,11 @@ public class Main {
         } catch (CourseNotFoundException e) {
             System.out.println(e.getMessage());
         }
+
+        System.out.println("\nJSON PARSER");
+        //JSON Parser
+        String filePath = "Student.json";
+        universityManagement.addStudentFromJson(filePath);
+        universityManagement.getStudents();
     }
 }

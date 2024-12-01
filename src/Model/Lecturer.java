@@ -1,5 +1,7 @@
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class Lecturer extends Person{
@@ -9,7 +11,14 @@ public class Lecturer extends Person{
 
     public void assignCourse(Course course){};
     public void removeCourse(Course course){};
-    public Lecturer(int id, String firstName, String lastName, String email, String lecturerNumber, List<Course> taughtCourses) {
+    public Lecturer(
+            @JsonProperty("id") int id,
+            @JsonProperty("firstName") String firstName,
+            @JsonProperty("lastName") String lastName,
+            @JsonProperty("email") String email,
+            @JsonProperty("lecturerNumber") String lecturerNumber,
+            @JsonProperty("taughtCourses") List<Course> taughtCourses
+    ) {
         this.setId(id);
         this.setFirstName(firstName);
         this.setLastName(lastName);

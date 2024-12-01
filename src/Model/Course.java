@@ -1,5 +1,8 @@
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,7 +23,14 @@ public class Course {
         enrolledStudents.remove(student);
     };
 
-    public Course(int courseId, String courseName, Lecturer lecturer, Date startDate, List<String> getWeekDays, Date endDate) {
+    @JsonCreator
+    public Course(
+            @JsonProperty("courseId") int courseId,
+            @JsonProperty("courseName") String courseName,
+            @JsonProperty("lecturer") Lecturer lecturer,
+            @JsonProperty("startDate") Date startDate,
+            @JsonProperty("getWeekDays") List<String> getWeekDays,
+            @JsonProperty("endDate") Date endDate) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.lecturer = lecturer;
